@@ -4,7 +4,13 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow any origin during MVP deployment phase
+    callback(null, true);
+  },
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
