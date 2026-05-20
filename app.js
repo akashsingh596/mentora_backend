@@ -5,10 +5,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow any origin during MVP deployment phase
-    callback(null, true);
-  },
+  origin: process.env.FRONTEND_URL,
   credentials: true
 }));
 app.use(express.json());
