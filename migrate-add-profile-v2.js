@@ -36,7 +36,6 @@ async function run() {
     }
   }
   console.log('\n✅  Migration complete!');
-  process.exit(0);
 }
 
-run();
+module.exports = run;
